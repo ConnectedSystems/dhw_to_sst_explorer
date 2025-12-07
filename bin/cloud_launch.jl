@@ -11,7 +11,7 @@ end
 port = get(ENV, "PORT", "8080")
 
 url = "0.0.0.0"
-server = Bonito.Server(app, url, port)
+server = Bonito.Server(app, url, parse(Int, port))
 Bonito.Page(; listen_port=parse(Int, port))
 
 # Display URL
