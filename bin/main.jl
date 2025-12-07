@@ -16,12 +16,6 @@ Bonito.Page(; listen_port=parse(Int, port))
 url_to_visit = online_url(server, "/")
 @info "Website launched at: $(url_to_visit)"
 
-# path = normpath(joinpath(dirname(pathof(BonitoBook)), "..", "docs", "examples", "intro.md"))
-
-# app = Bonito.App() do
-#     return BonitoBook.Book(path)
-# end;
-
 route!(server, "/" => app)
 @info server
 
