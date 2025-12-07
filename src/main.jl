@@ -216,18 +216,19 @@ function create_dashboard()
         used to determine the historic MMM is 1985 - 1990, plus 1993.
 
         Reported annual Maximum DHWs use a 12-week rolling mean. For the target DHW to be
-        reached, the indicated temperature must be consistently maintained for any 12-week
-        period over the year.
+        reached, accumulation of the indicated temperature must be consistently maintained
+        for any 12-week period over the year.
 
         DHW at 4 and 8°C-weeks are also reported as they correspond to ecological
         thresholds:
 
         - At 4°C-weeks, widespread bleaching becomes observable.
         - At 8°C-weeks, significant coral mortality begins and recovery is much less likely.
+        - At 12°C-weeks, widespread mortality is to be expected.
 
         Further detail on the methodology can be found in the links below:
 
-        - [Methodology](https://coralreefwatch.noaa.gov/product/5km/methodology.php)
+        - Section 3 - Climatology in [Methodology](https://coralreefwatch.noaa.gov/product/5km/methodology.php)
         - [Time Series](https://coralreefwatch.noaa.gov/product/vs/description.php#graphs)
 
         Bleaching threshold values were taken directly from NOAA datasets published here:
@@ -239,7 +240,7 @@ function create_dashboard()
             # styling,
             DOM.div(
                 DOM.div(
-                    DOM.h3("Sea Temperature to DHW"),
+                    DOM.h3("DHW to Sea Temperature"),
                     DOM.div(
                         DOM.label("Target DHW:"; class="control-label"),
                         DOM.div(
