@@ -1,4 +1,4 @@
-include(joinpath(@__DIR__, "src", "main.jl"))
+include(joinpath(@__DIR__, "..", "src", "main.jl"))
 
 proxy = get(ENV, "JULIAHUB_APP_URL", "")
 if isempty(proxy)
@@ -9,8 +9,9 @@ end
 
 # Use default port if not defined
 port = get(ENV, "PORT", "8080")
-@info "Constructing Bonito server on 0.0.0.0:$port $(isempty(proxy) ? "" : "with proxy $proxy")"
-server = Bonito.Server("0.0.0.0", parse(Int, port); proxy_url=proxy, verbose=-1)
+
+url = "0.0.0.0"
+server = Bonito.Server(app, url, port)
 Bonito.Page(; listen_port=parse(Int, port))
 
 # Display URL
