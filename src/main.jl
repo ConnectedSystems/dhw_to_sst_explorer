@@ -138,7 +138,7 @@ function create_dashboard()
     management_areas = load_spatial_data()
 
     # Create the app
-    app = App() do
+    app = App(; title="DHW to SST") do
         # Create DHW textbox with validation
         dhw_input = TextField(
             "20.0";
@@ -267,7 +267,3 @@ end
 
 # Run the dashboard
 app = create_dashboard()
-
-port = 9385
-url = "0.0.0.0"
-server = Bonito.Server(app, url, port)
