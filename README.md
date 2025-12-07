@@ -36,3 +36,21 @@ below:
 
 Bleaching threshold values were taken directly from NOAA datasets published here:
 - [GBR datasets](https://coralreefwatch.noaa.gov/product/vs/timeseries/great_barrier_reef.php)
+
+## Setup
+
+```bash
+julia --project=.
+] instantiate
+```
+
+## Usage
+
+Locally, the app can be launched by including the main file, assuming the current working
+directory is the project root.
+
+```julia
+include("src/main.jl")
+```
+
+Otherwise, the app is hosted on JuliaHub and is accessible here (subject to usage limits):
