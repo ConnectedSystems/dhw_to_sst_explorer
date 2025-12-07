@@ -1,8 +1,13 @@
+using DotEnv
+
+DotEnv.load!()
+
 include(joinpath(@__DIR__, "..", "src", "main.jl"))
 
 proxy = get(ENV, "JULIAHUB_APP_URL", "")
 if isempty(proxy)
     @info "No Bonito proxy found in environment variable JULIAHUB_APP_URL"
+    proxy = ENV["PROXY"]
 else
     @info "Using Bonito proxy from JULIAHUB_APP_URL: $proxy"
 end
@@ -10,7 +15,7 @@ end
 # Use default port if not defined
 port = get(ENV, "PORT", "8080")
 
-url = "0.0.0.0"
+url = proxy
 server = Bonito.Server(app, url, parse(Int, port))
 Bonito.Page(; listen_port=parse(Int, port))
 

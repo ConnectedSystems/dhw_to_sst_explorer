@@ -44,6 +44,12 @@ julia --project=.
 ] instantiate
 ```
 
+Add a `.env` file in the `bin` directory specifying the desired `PROXY` value:
+
+```
+PROXY = "some_url_or_IP_address"
+```
+
 ## Usage
 
 Locally, the app can be launched by including the main file, assuming the current working
