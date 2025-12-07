@@ -213,12 +213,12 @@ function create_dashboard()
         four management regions of the Great Barrier Reef. The bleaching threshold
         methodology as described by NOAA is adopted here.
 
-        The bleaching threshold is determined as +1°C an average historic Maximum Monthly
-        Mean (MMM) for a particular Regional Virtual Station.
+        The threshold is determined as +1°C an average historic Maximum Monthly
+        Mean (MMM) for each Regional Virtual Station.
 
         The reference period used to determine the historic MMM is 1985 - 1990, plus 1993.
 
-        Further detail on the bleaching threshold methodology can be found in the links
+        Further detail on the methodology can be found in the links
         below:
         - [Methodology](https://coralreefwatch.noaa.gov/product/5km/methodology.php)
         - [Time Series](https://coralreefwatch.noaa.gov/product/vs/description.php#graphs)
