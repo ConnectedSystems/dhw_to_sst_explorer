@@ -134,7 +134,7 @@ function create_dashboard()
     # styling = Bonito.Asset(joinpath(@__DIR__, "dhw_display.css"))
 
     # Load spatial data
-    @info "Loading spatial data..."
+    @debug "Loading spatial data..."
     management_areas = load_spatial_data()
 
     # Create the app
@@ -193,7 +193,7 @@ function create_dashboard()
 
         # Update display when button is clicked
         on(update_button.value) do click
-            @info "Updating plots..."
+            @debug "Updating plots..."
 
             # Only update if input is valid
             if !dhw_valid[]
@@ -204,7 +204,7 @@ function create_dashboard()
             new_matrix = estimate_exceedance_value(dhw_value[])
             update_map!(ax_map, management_areas, centroids, new_matrix, offsets)
 
-            @info "Plots updated!"
+            @debug "Plots updated!"
         end
 
         explanation_text = """
