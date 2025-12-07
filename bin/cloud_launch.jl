@@ -18,7 +18,7 @@ Bonito.Page(; listen_port=parse(Int, port))
 url_to_visit = online_url(server, "/")
 @info "Website launched at: $(url_to_visit)"
 
-route!(server, "/" => app)
+route!(server, "/dhw-to-sst" => app)
 @info server
 
 # Wait for the server to exit, because if running in an app, the app will
