@@ -44,7 +44,7 @@ julia --project=.
 ] instantiate
 ```
 
-Add a `.env` file in the `bin` directory specifying the desired `PROXY` value:
+Add a `.env` file at the project root, specifying the desired `PROXY` value:
 
 ```
 PROXY = "some_url_or_IP_address"
