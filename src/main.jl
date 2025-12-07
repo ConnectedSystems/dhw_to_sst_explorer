@@ -210,22 +210,24 @@ function create_dashboard()
 
         explanation_text = """
         This dashboard assists in determining how hot in terms of sea surface temperature
-        (in °C) ocean water has to get to achieve a specified DHW across the four management
-        regions of the Great Barrier Reef. The bleaching threshold methodology as described
-        by NOAA is adopted here. The threshold is determined as +1°C an average historic
-        Maximum Monthly Mean (MMM) for each Regional Virtual Station. The reference period
-        used to determine the historic MMM is 1985 - 1990, plus 1993.
+        (in °C) ocean water has to get on _average_ over a reported period to achieve a
+        specified Degree Heating Week (DHW) across the four management regions of the
+        Great Barrier Reef. The bleaching threshold methodology as described by NOAA is
+        adopted here. The threshold is determined as +1°C an average historic Maximum
+        Monthly Mean (MMM) for each Regional Virtual Station. The reference period used to
+        determine the historic MMM is 1985 - 1990, plus 1993.
 
         Reported annual Maximum DHWs use a 12-week rolling mean. For the target DHW to be
         reached, accumulation of the indicated temperature must be consistently maintained
         for any 12-week period over the year.
 
-        DHW at 4 and 8°C-weeks are also reported as they correspond to ecological
-        thresholds:
+        DHW is the accumulation of heat stress, rather than a duration.
 
-        - At 4°C-weeks, widespread bleaching becomes observable.
-        - At 8°C-weeks, significant coral mortality begins and recovery is much less likely.
-        - At 12°C-weeks, widespread mortality is to be expected.
+        To give a simplified example:
+
+        - +1°C above threshold for 8 weeks (within the 12-week window) is 8 DHW
+        - +2°C above threshold for 4 weeks (within the 12-week window) is also 8 DHW
+        - +4°C above threshold for 2 weeks then +0°C for 10 weeks is also 8 DHW
 
         Further detail on the methodology can be found in the links below:
 
