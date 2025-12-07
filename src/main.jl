@@ -267,3 +267,7 @@ end
 
 # Run the dashboard
 app = create_dashboard()
+
+port = 8080
+url = "0.0.0.0"
+server = Bonito.Server(app, url, port)
