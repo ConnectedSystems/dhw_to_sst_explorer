@@ -62,7 +62,8 @@ and columns are 12, 8, 4 week estimates.
 function estimate_exceedance_value(dhw::Real)
     tmp = zeros(4, 3)
     for (i, threshold) in enumerate(MMM_THRESHOLDS)
-        tmp[i, :] = reverse(threshold .+ estimate_sst_exceedance(dhw))
+        # MMM + 1-degree celcius is bleaching threshold
+        tmp[i, :] = reverse((threshold + 1.0) .+ estimate_sst_exceedance(dhw))
     end
     return tmp
 end
