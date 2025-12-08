@@ -21,10 +21,8 @@ end
 port = parse(Int, get(ENV, "PORT", "8080"))
 
 server = Bonito.Server(url, port; proxy_url=proxy)
-Bonito.Page(; listen_port=port, proxy_url=proxy)
 
 route!(server, "/" => app)
-route!(server, "/dhw-to-sst/" => app)
 
 # Display URL
 url_to_visit = online_url(server, "/")
