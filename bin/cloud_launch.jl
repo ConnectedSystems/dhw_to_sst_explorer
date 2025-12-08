@@ -13,17 +13,17 @@ else
 end
 
 # Use default port if not defined
-port = get(ENV, "PORT", "8080")
+port = parse(Int, get(ENV, "PORT", "8080"))
 
 url = proxy
-server = Bonito.Server(app, url, parse(Int, port))
-Bonito.Page(; listen_port=parse(Int, port))
+server = Bonito.Server(app, url, port)
+Bonito.Page(; listen_port=port)
+route!(server, "/dhw-to-sst" => app)
 
 # Display URL
 url_to_visit = online_url(server, "/")
 @info "Website launched at: $(url_to_visit)"
 
-route!(server, "/dhw-to-sst" => app)
 @info server
 
 # Wait for the server to exit, because if running in an app, the app will
