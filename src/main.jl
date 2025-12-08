@@ -82,7 +82,7 @@ Defines region offsets for text display.
 Manually defined here to allow for quick adjustment.
 """
 function region_offset()
-    return ((150, 0), (150, 0), (-90, -10), (-100, -10))
+    return ((170, 0), (160, 10), (-80, -20), (-100, -20))
 end
 
 """
@@ -121,7 +121,7 @@ function plot_region_map!(ax, management_areas, centroids, exceedance_matrix, of
             ax, centroids[i];
             text=label_text,
             align=(:right, :center),
-            fontsize=14,
+            fontsize=12,
             color=:black,
             offset=offsets[i]
         )
