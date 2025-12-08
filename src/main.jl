@@ -102,10 +102,18 @@ function plot_region_map!(ax, management_areas, centroids, exceedance_matrix, of
 
     # Add text labels with all three periods
     for i in axes(exceedance_matrix, 1)
+        week_12 = round(exceedance_matrix[i, 1]; digits=1)
+        week_08 = round(exceedance_matrix[i, 2]; digits=1)
+        week_04 = round(exceedance_matrix[i, 3]; digits=1)
+
+        w12_exc = round(exceedance_matrix[i, 1] - MMM_THRESHOLDS[i]; digits=1)
+        w08_exc = round(exceedance_matrix[i, 2] - MMM_THRESHOLDS[i]; digits=1)
+        w04_exc = round(exceedance_matrix[i, 3] - MMM_THRESHOLDS[i]; digits=1)
+
         label_text = string(
-            "12 weeks: ", round(exceedance_matrix[i, 1]; digits=1), "°C\n",
-            "8 weeks: ", round(exceedance_matrix[i, 2]; digits=1), "°C\n",
-            "4 weeks: ", round(exceedance_matrix[i, 3]; digits=1), "°C\n",
+            "12 weeks: ", week_12, "°C ($(w12_exc))\n",
+            "8 weeks: ", week_08, "°C ($(w08_exc))\n",
+            "4 weeks: ", week_04, "°C ($(w04_exc))\n",
             "Threshold: ", round(MMM_THRESHOLDS[i]; digits=1), "°C"
         )
 
