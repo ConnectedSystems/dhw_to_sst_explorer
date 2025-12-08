@@ -31,12 +31,12 @@ else
     sslconfig = nothing
 end
 
-server = Bonito.Server(app, url, port; proxy_url=proxy, sslconfig=sslconfig)
-Bonito.Page(; listen_port=port)
+server = Bonito.Server(url, port; proxy_url=proxy, sslconfig=sslconfig)
+# Bonito.Page(; listen_port=port)
 route!(server, "/dhw-to-sst" => app)
 
 # Display URL
-url_to_visit = online_url(server, "/dhw-to-sst")
+url_to_visit = online_url(server, "/")
 @info "Website launched at: $(url_to_visit)"
 
 @info server
