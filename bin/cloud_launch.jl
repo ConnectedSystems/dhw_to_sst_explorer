@@ -33,10 +33,10 @@ end
 
 server = Bonito.Server(app, url, port; proxy_url=proxy, sslconfig=sslconfig)
 Bonito.Page(; listen_port=port)
-route!(server, "/" => app)
+route!(server, "/dhw-to-sst" => app)
 
 # Display URL
-url_to_visit = online_url(server, "/")
+url_to_visit = online_url(server, "/dhw-to-sst")
 @info "Website launched at: $(url_to_visit)"
 
 @info server
