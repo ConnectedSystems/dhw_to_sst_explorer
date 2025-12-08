@@ -1,4 +1,3 @@
-using MbedTLS
 using DotEnv
 
 DotEnv.load!()
@@ -21,19 +20,11 @@ end
 # Use default port if not defined
 port = parse(Int, get(ENV, "PORT", "8080"))
 
-ssl_path = get(ENV, "SSLPATH", "")
-if !isempty(ssl_path)
-    sslconfig = MbedTLS.SSLConfig(
-        "$(ssl_path)/fullchain.pem",
-        "$(ssl_path)/privkey.pem"
-    )
-else
-    sslconfig = nothing
-end
+server = Bonito.Server(url, port; proxy_url=proxy)
+Bonito.Page(; listen_port=port, proxy_url=proxy)
 
-server = Bonito.Server(url, port; proxy_url=proxy, sslconfig=sslconfig)
-# Bonito.Page(; listen_port=port)
-route!(server, "/dhw-to-sst" => app)
+route!(server, "/" => app)
+route!(server, "/dhw-to-sst/" => app)
 
 # Display URL
 url_to_visit = online_url(server, "/")
